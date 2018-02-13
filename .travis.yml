@@ -8,6 +8,9 @@ language: python
 # Uncomment if you need super powers (e.g., for apt-get)
 # sudo: require
 
+services:
+  - docker
+
 # To use other python versions in osx, set the PYTHON variable with the version supported by pyenv.
 # Check available versions with `pyenv install --list'.
 # We use in this example python >=3.4 because matplotlib requires it
@@ -35,6 +38,7 @@ install:
   - pip install -U pytest
   - pip install sphinx
   - pip install .
+  - if [[ ${TRAVIS_OS_NAME} = "linux" ]] docker build .
   
 # Command to run tests. These are run for each configuration
 script: 
