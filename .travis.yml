@@ -38,7 +38,7 @@ install:
   - pip install -U pytest
   - pip install sphinx
   - pip install .
-  - if [[ ${TRAVIS_OS_NAME} = "linux" ]] then docker build . fi
+  - if [[ ${TRAVIS_OS_NAME} == "linux" ]] then docker build .; fi
   
 # Command to run tests. These are run for each configuration
 script: 
